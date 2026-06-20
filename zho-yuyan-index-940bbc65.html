@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.5">
+  <title>雨燕直播 · 一处安定的落脚点</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+      background: #f2f4f7;
+      color: #1e1e2a;
+      line-height: 1.6;
+      padding: 2rem 1rem;
+    }
+
+    .page-wrap {
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+
+    /* 柔和卡片 */
+    .card {
+      background: #ffffff;
+      border: 1px solid #e2e6ed;
+      border-radius: 24px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03), 0 1px 3px rgba(0, 0, 0, 0.04);
+      padding: 2rem 2.2rem;
+      margin-bottom: 2rem;
+      transition: box-shadow 0.2s ease;
+    }
+
+    .card:hover {
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05), 0 2px 6px rgba(0, 0, 0, 0.02);
+    }
+
+    .hero {
+      text-align: center;
+      padding: 3rem 1rem 2rem;
+    }
+
+    .hero .greet {
+      font-size: 1.1rem;
+      font-weight: 400;
+      color: #64748b;
+      letter-spacing: 2px;
+      margin-bottom: 0.75rem;
+    }
+
+    .hero h1 {
+      font-size: 2.4rem;
+      font-weight: 500;
+      color: #1e293b;
+      margin-bottom: 0.5rem;
+      line-height: 1.25;
+    }
+
+    .hero p {
+      max-width: 650px;
+      margin: 1.2rem auto 0;
+      font-size: 1.08rem;
+      color: #3b4a5f;
+    }
+
+    /* 承接段落 */
+    .story-section {
+      display: flex;
+      flex-direction: column;
+      gap: 1.2rem;
+    }
+
+    .story-section p {
+      font-size: 1.03rem;
+      color: #2c3e50;
+    }
+
+    .story-section .highlight-link {
+      background: #f1f5f9;
+      border-left: 4px solid #a1b7d0;
+      padding: 1.2rem 1.5rem;
+      border-radius: 16px;
+      margin: 0.5rem 0;
+    }
+
+    .story-section .highlight-link a {
+      font-weight: 500;
+      color: #1e3a5f;
+      text-decoration: none;
+      border-bottom: 1px dashed #7f9bb3;
+    }
+
+    .story-section .highlight-link a:hover {
+      border-bottom-color: #1e3a5f;
+    }
+
+    /* 特点卡片 —— 小列表 */
+    .feature-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem;
+      margin: 1.2rem 0 0.5rem;
+    }
+
+    .feature-item {
+      background: #f9fafc;
+      border-radius: 20px;
+      padding: 1.4rem 1.2rem;
+      border: 1px solid #e9edf4;
+      transition: background 0.15s;
+    }
+
+    .feature-item:hover {
+      background: #f2f5fa;
+    }
+
+    .feature-item .emoji-badge {
+      font-size: 1.7rem;
+      display: inline-block;
+      margin-bottom: 0.3rem;
+    }
+
+    .feature-item h3 {
+      font-size: 1.1rem;
+      font-weight: 500;
+      color: #1e2b3c;
+      margin-bottom: 0.3rem;
+    }
+
+    .feature-item p {
+      font-size: 0.95rem;
+      color: #4b5b6f;
+    }
+
+    /* 小场景 / 引用块 */
+    .scene-box {
+      background: #f6f8fb;
+      border-radius: 20px;
+      padding: 1.5rem 1.6rem;
+      margin: 1.8rem 0 1rem;
+      border: 1px solid #e2e8f0;
+    }
+
+    .scene-box .scene-title {
+      font-weight: 500;
+      font-size: 1rem;
+      color: #334155;
+      margin-bottom: 0.4rem;
+    }
+
+    .scene-box p {
+      font-size: 0.98rem;
+      color: #3b4b5e;
+    }
+
+    /* FAQ 摘要 */
+    .faq-mini {
+      margin-top: 0.8rem;
+    }
+
+    .faq-mini details {
+      margin-bottom: 0.8rem;
+      border-bottom: 1px solid #eceff5;
+      padding-bottom: 0.6rem;
+    }
+
+    .faq-mini summary {
+      cursor: pointer;
+      font-weight: 480;
+      color: #1f3145;
+      padding: 0.25rem 0;
+      font-size: 0.98rem;
+      list-style: none;
+      display: flex;
+      align-items: center;
+    }
+
+    .faq-mini summary::before {
+      content: "▸ ";
+      color: #7b8da0;
+      margin-right: 6px;
+      font-size: 1rem;
+    }
+
+    .faq-mini details[open] summary::before {
+      content: "▾ ";
+    }
+
+    .faq-mini details p {
+      margin-top: 0.4rem;
+      padding-left: 1.4rem;
+      font-size: 0.92rem;
+      color: #475569;
+    }
+
+    /* 结尾 */
+    .closing {
+      text-align: center;
+      padding: 1.8rem 1rem 0.8rem;
+      border-top: 1px solid #dee4ed;
+      margin-top: 0.8rem;
+    }
+
+    .closing p {
+      font-size: 1rem;
+      color: #415a77;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    .closing .muted {
+      font-size: 0.85rem;
+      color: #8091a8;
+      margin-top: 0.6rem;
+    }
+
+    /* 响应式细节 */
+    @media (max-width: 680px) {
+      body {
+        padding: 1.2rem 0.8rem;
+      }
+
+      .card {
+        padding: 1.6rem 1.2rem;
+        border-radius: 20px;
+      }
+
+      .hero h1 {
+        font-size: 1.9rem;
+      }
+
+      .feature-grid {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+      }
+
+      .hero .greet {
+        font-size: 0.95rem;
+      }
+
+      .story-section .highlight-link {
+        padding: 1rem 1.1rem;
+      }
+
+      .faq-mini summary {
+        font-size: 0.92rem;
+      }
+    }
+
+    @media (max-width: 420px) {
+      .hero h1 {
+        font-size: 1.6rem;
+      }
+
+      .card {
+        padding: 1.2rem 0.9rem;
+      }
+
+      .feature-item {
+        padding: 1rem 0.9rem;
+      }
+    }
+  </style>
+</head>
+<body>
+<div class="page-wrap">
+
+  <!-- 开场短句 / hero -->
+  <div class="card hero">
+    <div class="greet">✦ 一处安静的起点</div>
+    <h1>不需要太复杂<br>有一个稳定入口就够了</h1>
+    <p>如果你在寻找一个简洁、干净的落脚点，不妨从这里开始。没有纷繁的跳转，只有通往一处熟悉去处的路。</p>
+  </div>
+
+  <!-- 承接段落 + 链接自然嵌入 -->
+  <div class="card story-section">
+    <p>许多人在网上兜兜转转，最后往往只记得一两个最常去的地方。它们未必最喧闹，但胜在稳定、直接，不需要每次重新寻找。像老朋友一样，你知道它在那里。</p>
+
+    <div class="highlight-link">
+      <p>对我来说，这个位置就是 <a href="https://zho-yuyan.com">雨燕直播</a>。没有多余的修饰，一个干净的入口，足够让熟悉它的人快速回到自己关心的内容前。</p>
+    </div>
+
+    <p>页面简洁、响应迅速，不消耗无谓的等待。这大概就是为什么很多人把它留在收藏夹里，或者干脆记住了地址。</p>
+  </div>
+
+  <!-- 特点列表 使用卡片网格 -->
+  <div class="card">
+    <h2 style="font-weight: 500; font-size: 1.3rem; color: #1f2a3e; margin-bottom: 0.2rem;">几个让人安心的地方</h2>
+    <p style="color: #4e627b; margin-bottom: 0.2rem; font-size: 0.98rem;">没有夸张的功能列表，但日常用到的都在。</p>
+
+    <div class="feature-grid">
+      <div class="feature-item">
+        <div class="emoji-badge">📌</div>
+        <h3>入口稳定</h3>
+        <p>域名清晰，访问直接。不需要每次搜索或通过第三方跳转，省去中间步骤。</p>
+      </div>
+      <div class="feature-item">
+        <div class="emoji-badge">🕊️</div>
+        <h3>页面轻量</h3>
+        <p>没有繁重的加载项，打开就是内容本身。对网络环境要求友好，加载很快。</p>
+      </div>
+      <div class="feature-item">
+        <div class="emoji-badge">🧭</div>
+        <h3>指向明确</h3>
+        <p>导航简单，层级不深。无论是初次到来还是常客，都能一眼找到熟悉的板块。</p>
+      </div>
+      <div class="feature-item">
+        <div class="emoji-badge">🔁</div>
+        <h3>持续可用</h3>
+        <p>长期维护的地址，减少了“链接失效”的困扰。对于习惯固定入口的人来说非常友好。</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- 场景 + 温和提示 -->
+  <div class="card">
+    <div class="scene-box">
+      <div class="scene-title">◈ 一个小场景</div>
+      <p>晚上打开浏览器，输入地址，直接进入熟悉的内容页面。没有广告弹窗的打扰，也不用在多个标签页里反复切换。就像推开一扇熟悉的小门，里面还是老样子。这种稳定感，在变化太快的网络环境里反而显得珍贵。</p>
+    </div>
+
+    <!-- FAQ 摘要风格 -->
+    <div class="faq-mini">
+      <details>
+        <summary>为什么需要一个固定的入口？</summary>
+        <p>当你想去一个地方，最快的路往往是已经知道的路。固定入口省去了记忆模糊、搜索、筛选的时间，也避开了一些来源不明的链接。</p>
+      </details>
+      <details>
+        <summary>这个页面指向的地址长期有效吗？</summary>
+        <p>是的，维护方一直保持域名的稳定解析与内容更新。如果你有收藏习惯，可以放心保留。</p>
+      </details>
+      <details>
+        <summary>是否适合推荐给朋友？</summary>
+        <p>如果你觉得朋友也需要一个直接、干净的入口，完全可以分享 <a href="https://zho-yuyan.com" style="color: #1e3a5f; text-decoration: underline; text-underline-offset: 3px;">雨燕直播</a> 这个地址。它本身就是一个清晰的起点。</p>
+      </details>
+    </div>
+  </div>
+
+  <!-- 温和结尾 -->
+  <div class="card closing">
+    <p>网络世界很大，但真正让人感到自在的角落并不多。</p>
+    <p style="margin-top: 0.2rem;">希望这个入口对你而言，也是其中一个。</p>
+    <div class="muted">—— 下次想回来的时候，地址还在老地方。</div>
+  </div>
+
+</div>
+</body>
+</html>
