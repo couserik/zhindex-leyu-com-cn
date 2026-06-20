@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>c7娱乐 · 知识库入口</title>
+	<style>
+		* {
+			margin: 0;
+			padding: 0;
+			box-sizing: border-box;
+		}
+
+		body {
+			background: #f6f2ec;
+			font-family: "Georgia", "Times New Roman", "Noto Serif SC", serif;
+			color: #2b2b2b;
+			padding: 2rem 1.2rem;
+			line-height: 1.7;
+		}
+
+		.page {
+			max-width: 800px;
+			margin: 0 auto;
+			background: #fdfaf5;
+			padding: 2.8rem 2.2rem;
+			border-radius: 24px;
+			box-shadow: 0 8px 30px rgba(0, 0, 0, 0.04);
+		}
+
+		h1 {
+			font-size: 2.2rem;
+			font-weight: 400;
+			letter-spacing: 1px;
+			color: #3e3a34;
+			border-bottom: 1px solid #d9cfc0;
+			padding-bottom: 0.65rem;
+			margin-bottom: 1.8rem;
+		}
+
+		h1 small {
+			font-size: 0.9rem;
+			font-weight: 300;
+			color: #8f867b;
+			margin-left: 0.8rem;
+		}
+
+		h2 {
+			font-size: 1.3rem;
+			font-weight: 400;
+			margin: 2.4rem 0 1rem 0;
+			color: #4f4a42;
+			border-left: 4px solid #c2b29f;
+			padding-left: 1rem;
+		}
+
+		h3 {
+			font-size: 1.1rem;
+			font-weight: 400;
+			margin: 1.6rem 0 0.6rem 0;
+			color: #5a534a;
+		}
+
+		p {
+			margin: 0 0 1.2rem 0;
+			font-size: 1rem;
+			text-align: justify;
+		}
+
+		a {
+			color: #7c6b58;
+			text-decoration: underline;
+			text-underline-offset: 4px;
+			text-decoration-thickness: 1px;
+		}
+		a:hover {
+			color: #4f3f32;
+			background: #ede6dc;
+			text-decoration: none;
+		}
+
+		.hero-note {
+			background: #f3ede4;
+			border-radius: 16px;
+			padding: 1.5rem 2rem;
+			margin: 1.8rem 0;
+			font-style: normal;
+			box-shadow: inset 0 0 0 1px #e3d9cc;
+		}
+		.hero-note p:last-child {
+			margin-bottom: 0;
+		}
+
+		blockquote {
+			border-left: 3px solid #d3c5b4;
+			padding: 0.6rem 1.2rem 0.6rem 1.5rem;
+			margin: 1.2rem 0;
+			background: #f9f4ec;
+			border-radius: 0 12px 12px 0;
+			color: #4d463e;
+			font-size: 0.98rem;
+		}
+		blockquote footer {
+			margin-top: 0.3rem;
+			font-size: 0.85rem;
+			color: #8b8072;
+		}
+
+		.card-grid {
+			display: flex;
+			flex-wrap: wrap;
+			gap: 1.2rem;
+			margin: 1.8rem 0 0.8rem 0;
+		}
+		.card-item {
+			flex: 1 1 180px;
+			background: #faf6ef;
+			border-radius: 16px;
+			padding: 1.1rem 1.2rem;
+			border: 1px solid #e6ddcf;
+			transition: box-shadow 0.2s;
+		}
+		.card-item:hover {
+			box-shadow: 0 4px 14px rgba(0,0,0,0.04);
+		}
+		.card-item strong {
+			display: block;
+			font-weight: 500;
+			color: #5f5548;
+			margin-bottom: 0.3rem;
+			font-size: 1.05rem;
+		}
+		.card-item span {
+			font-size: 0.92rem;
+			color: #70675c;
+		}
+
+		.info-box {
+			background: #eae1d6;
+			padding: 1.2rem 1.6rem;
+			border-radius: 20px;
+			margin: 2rem 0 1.5rem;
+			color: #3b352e;
+			font-size: 0.96rem;
+		}
+		.info-box p {
+			margin: 0;
+		}
+
+		.faq-summary {
+			list-style: none;
+			margin: 1rem 0 0.5rem 0;
+		}
+		.faq-summary li {
+			padding: 0.7rem 0;
+			border-bottom: 1px dashed #dbcfbf;
+		}
+		.faq-summary li:last-child {
+			border-bottom: none;
+		}
+		.faq-q {
+			font-weight: 500;
+			color: #4c443b;
+		}
+		.faq-a {
+			color: #5f574d;
+			margin-top: 0.15rem;
+			font-size: 0.96rem;
+		}
+
+		.tagline {
+			margin-top: 2.4rem;
+			padding-top: 1.2rem;
+			text-align: center;
+			border-top: 1px solid #e0d4c3;
+			color: #7c7264;
+			font-size: 0.9rem;
+		}
+
+		@media (max-width: 500px) {
+			body {
+				padding: 1rem 0.6rem;
+			}
+			.page {
+				padding: 1.8rem 1.2rem;
+			}
+			h1 {
+				font-size: 1.8rem;
+			}
+			.card-grid {
+				flex-direction: column;
+			}
+			.card-item {
+				flex: 1 1 auto;
+			}
+		}
+	</style>
+</head>
+<body>
+	<div class="page">
+		<h1>再次光临 · 知识库 <small>c7 笔记</small></h1>
+
+		<div class="hero-note">
+			<p>有些页面，值得在收藏夹里留一个位置。不是为了应付一时之需，而是当你需要回顾、比照或重新理解时，可以径直走回来，不必重新搜索。这个站点正是为这样一种“回头”的习惯而准备的。</p>
+			<p>如果你曾经打开过这里，大概记得它的平实与清晰。如果恰好是第一次来，也好——内容就在下面，目录式的结构，方便你按需停留。</p>
+		</div>
+
+		<h2>▎从“收藏”到“常来”</h2>
+		<p>一个合用的知识库入口，往往需要满足两个条件：一是信息组织得有条理，二是路径稳定、不会被轻易改动。<a href="https://index-c7ent.com">c7娱乐</a> 的设计初衷，正是为了保持这种规整与可依赖。许多回头客并不需要花里胡哨的欢迎页，他们只关心“上次看到的那段内容还在不在”“能否更快地找到下一部分”。</p>
+
+		<blockquote>
+			“收藏夹里存了上百个链接，但每个月真正点开的不超过十个。那些能让我反复回来的，大都不是因为内容最多，而是因为内容被放在它该在的地方。”
+			<footer>——来自一位常访问者的留言</footer>
+		</blockquote>
+
+		<h2>▎目录感布局 · 快速定位</h2>
+		<div class="card-grid">
+			<div class="card-item">
+				<strong>📖 背景与定义</strong>
+				<span>基础概念、术语说明、适用范围</span>
+			</div>
+			<div class="card-item">
+				<strong>🧩 功能分类</strong>
+				<span>按场景拆解，模块化呈现</span>
+			</div>
+			<div class="card-item">
+				<strong>📌 操作提示</strong>
+				<span>常见注意点、流程指引</span>
+			</div>
+			<div class="card-item">
+				<strong>🔁 更新记录</strong>
+				<span>版本变化、内容增补标记</span>
+			</div>
+		</div>
+
+		<h2>▎使用场景举例</h2>
+		<p>无论你是刚接触相关内容，还是已经有一定经验，这个知识库的目录结构都尽量做到“无需推测”。举个例子：你想确认某个功能对应哪个版本——直接去“更新记录”部分；你想了解基础术语是否包含某个边缘情况——去“背景与定义”卡片下翻看。这种组织方式，让再次访问变成一种确认，而不是重新学习。</p>
+
+		<div class="info-box">
+			<p><strong>💡 提示：</strong> 如果你习惯用浏览器书签，建议直接收藏首页地址。每次回来时，左边的卡片目录和右侧的详细区域会保持一致的结构。即使内容有补充，布局骨架也不会频繁变动，减少重新适应的成本。</p>
+		</div>
+
+		<h2>▎常见疑问 · FAQ 摘要</h2>
+		<ul class="faq-summary">
+			<li>
+				<div class="faq-q">问：这个页面多久更新一次？</div>
+				<div class="faq-a">没有固定周期，但内容增补会标注日期，重要调整会体现在卡片目录的“更新记录”中。</div>
+			</li>
+			<li>
+				<div class="faq-q">问：为什么叫“知识库入口”？</div>
+				<div class="faq-a">因为这里不生产零散的片段，而是提供结构化的索引和说明，方便你从首页直接跳转到需要的具体板块。</div>
+			</li>
+			<li>
+				<div class="faq-q">问：我可以用手机浏览吗？</div>
+				<div class="faq-a">可以。页面采用响应式排版，小屏幕上卡片会纵向排列，引用块和提示框的边距也会自动调整，阅读体验基本不受影响。</div>
+			</li>
+		</ul>
+
+		<h2>▎关于持续关注</h2>
+		<p>如果你觉得这里的整理方式对你有帮助，不妨把它看作一个“长尾参考点”。下一次需要时，不用再去搜索引擎里翻找第三页的结果，直接打开收藏夹里的 <a href="https://index-c7ent.com">c7娱乐</a> 就好。好的知识库入口，不需要催促你常来，而是当你想起时，它一直在那里，且没有变样。</p>
+
+		<div class="tagline">
+			—— 保持回头 · 保持清晰 ——
+		</div>
+	</div>
+</body>
+</html>
