@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>黑白直播 · 稳定入口说明</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+            line-height: 1.6;
+            background-color: #f9f7f4;
+            color: #1f2a3a;
+        }
+
+        /* hero 深色头图 */
+        .hero {
+            background: linear-gradient(145deg, #141a24 0%, #1f2a3a 100%);
+            color: #e8e4dd;
+            padding: 3.2rem 1.8rem 2.8rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            top: -40%;
+            left: -20%;
+            width: 140%;
+            height: 140%;
+            background: radial-gradient(circle at 70% 30%, rgba(220, 200, 160, 0.06) 0%, transparent 70%);
+            pointer-events: none;
+        }
+
+        .hero h1 {
+            font-size: 2.6rem;
+            font-weight: 400;
+            letter-spacing: 2px;
+            margin-bottom: 0.6rem;
+            color: #f0ece4;
+            text-shadow: 0 2px 8px rgba(0,0,0,0.25);
+        }
+
+        .hero .sub {
+            font-size: 1rem;
+            font-weight: 300;
+            color: #b9b2a6;
+            border-top: 1px solid rgba(255, 235, 210, 0.15);
+            display: inline-block;
+            padding-top: 0.5rem;
+            margin-top: 0.4rem;
+        }
+
+        .hero .highlight {
+            color: #e6cba0;
+        }
+
+        /* 浅色正文区 */
+        .container {
+            max-width: 920px;
+            margin: 0 auto;
+            padding: 2rem 1.6rem 3.5rem;
+        }
+
+        .section {
+            margin-bottom: 2.8rem;
+        }
+
+        .section:last-of-type {
+            margin-bottom: 2rem;
+        }
+
+        .section-title {
+            font-size: 1.4rem;
+            font-weight: 500;
+            border-left: 4px solid #b8a68b;
+            padding-left: 1rem;
+            margin-bottom: 1.2rem;
+            color: #1f2a3a;
+        }
+
+        .section p {
+            margin-bottom: 1rem;
+            text-align: justify;
+        }
+
+        .card-note {
+            background: #ffffff;
+            border-radius: 14px;
+            padding: 1.4rem 1.6rem;
+            box-shadow: 0 2px 12px rgba(0, 0, 0, 0.03), 0 1px 3px rgba(0, 0, 0, 0.04);
+            margin-bottom: 1.5rem;
+        }
+
+        .card-note p:last-child {
+            margin-bottom: 0;
+        }
+
+        .emph-link {
+            color: #9b7e5f;
+            font-weight: 500;
+            text-decoration: none;
+            border-bottom: 1px solid #d6c7b6;
+            transition: border-color 0.25s, color 0.2s;
+        }
+
+        .emph-link:hover {
+            color: #7a5f44;
+            border-bottom-color: #7a5f44;
+        }
+
+        .feature-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.2rem;
+            margin-top: 0.8rem;
+        }
+
+        .feature-item {
+            flex: 1 1 200px;
+            background: #f4f1ec;
+            padding: 1rem 1.2rem;
+            border-radius: 12px;
+            border-left: 3px solid #b8a68b;
+        }
+
+        .feature-item strong {
+            display: block;
+            font-weight: 600;
+            font-size: 1.05rem;
+            margin-bottom: 0.3rem;
+            color: #1f2a3a;
+        }
+
+        .feature-item span {
+            font-size: 0.9rem;
+            color: #4a5568;
+        }
+
+        .faq-mini {
+            margin-top: 1.6rem;
+        }
+
+        .faq-q {
+            font-weight: 500;
+            margin-top: 1.1rem;
+            margin-bottom: 0.2rem;
+            color: #2c3e4f;
+        }
+
+        .faq-a {
+            color: #3e4c5e;
+            padding-left: 0.4rem;
+            border-left: 2px solid #ddd4c8;
+            padding-left: 1rem;
+        }
+
+        .footer-access {
+            margin-top: 3rem;
+            padding-top: 1.8rem;
+            border-top: 1px solid #ddd4c8;
+            text-align: center;
+            font-size: 0.95rem;
+            color: #5a6a7c;
+        }
+
+        .footer-access .mention {
+            background: #f0ece4;
+            display: inline-block;
+            padding: 0.25rem 1.2rem;
+            border-radius: 40px;
+            font-size: 0.9rem;
+            letter-spacing: 0.4px;
+            color: #3f4b5b;
+        }
+
+        .footer-access .mention a {
+            color: #7f644b;
+            font-weight: 500;
+            text-decoration: none;
+        }
+
+        .footer-access .mention a:hover {
+            text-decoration: underline;
+        }
+
+        /* 响应式 */
+        @media (max-width: 600px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .hero {
+                padding: 2.4rem 1.2rem 2rem;
+            }
+
+            .container {
+                padding: 1.5rem 1rem 2.8rem;
+            }
+
+            .section-title {
+                font-size: 1.2rem;
+            }
+
+            .feature-grid {
+                flex-direction: column;
+            }
+        }
+
+        @media (min-width: 768px) {
+            .hero h1 {
+                font-size: 3.2rem;
+            }
+        }
+
+        /* 实用细节 */
+        .subtle-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .subtle-list li {
+            padding: 0.4rem 0;
+            border-bottom: 1px dashed #e3dbd0;
+        }
+
+        .subtle-list li:last-child {
+            border-bottom: none;
+        }
+
+        .tag {
+            display: inline-block;
+            background: #e3dbd0;
+            color: #2d3a47;
+            font-size: 0.75rem;
+            padding: 0.1rem 0.8rem;
+            border-radius: 20px;
+            letter-spacing: 0.3px;
+            margin-right: 0.3rem;
+        }
+    </style>
+</head>
+<body>
+    <header class="hero">
+        <h1>稳定 · 澄明 · 入口</h1>
+        <div class="sub"><span class="highlight">黑白直播</span> · 页面说明与使用背景</div>
+    </header>
+
+    <div class="container">
+        <!-- 背景说明：三段自然介绍 -->
+        <div class="section">
+            <div class="section-title">为什么需要一个稳定的说明页</div>
+            <p>在众多信息聚合与流媒体导向的服务中，<strong>入口的可靠性</strong>往往被低估。一个清晰、无冗余的说明页面，能够帮助使用者快速理解平台定位与访问方式。<a href="https://page-hbzb.com" class="emph-link">黑白直播</a> 的内容组织逻辑围绕实时赛事与频道整理展开，而本页则作为辅助索引，介绍其基本结构。</p>
+            <div class="card-note">
+                <p>本页面本身不承载流媒体内容，仅用于说明访问背景、常见问题及稳定入口提示。所有指向外部服务的链接均来自公开可访问地址。</p>
+            </div>
+        </div>
+
+        <!-- 第二段：特点与场景（杂志卡片风格） -->
+        <div class="section">
+            <div class="section-title">特点与适用场景</div>
+            <div class="feature-grid">
+                <div class="feature-item">
+                    <strong>低干扰浏览</strong>
+                    <span>页面结构避免弹窗与自动跳转，聚焦于频道列表与状态提示。</span>
+                </div>
+                <div class="feature-item">
+                    <strong>多终端适配</strong>
+                    <span>从桌面到移动设备，响应式布局保证关键信息始终可见。</span>
+                </div>
+                <div class="feature-item">
+                    <strong>持续维护</strong>
+                    <span>入口地址长期有效，如有调整会在说明区更新备注。</span>
+                </div>
+            </div>
+            <p style="margin-top: 1.2rem;">对于日常关注体育赛事的用户，直接通过书签或此说明页记录的地址访问 <a href="https://page-hbzb.com" class="emph-link">黑白直播</a> 可减少中间步骤。页面不收集任何个人信息，亦无强制注册流程。</p>
+        </div>
+
+        <!-- 第三段：FAQ摘要 + 访问提示 -->
+        <div class="section">
+            <div class="section-title">常见理解与提示</div>
+            <div class="faq-mini">
+                <div class="faq-q">Q：此页面与主站的关系是什么？</div>
+                <div class="faq-a">本页是独立编写的说明页，用于介绍 <a href="https://page-hbzb.com" class="emph-link">黑白直播</a> 的访问背景和基本结构，不替代主站功能。</div>
+
+                <div class="faq-q">Q：为什么强调「稳定入口」？</div>
+                <div class="faq-a">部分聚合类直播站点会因为网络调整或域名变更而失效，本页面作为索引，旨在提供长期可访问的说明与指向。</div>
+
+                <div class="faq-q">Q：页面内容会更新吗？</div>
+                <div class="faq-a">会。随着主站结构调整，说明文字与提示部分会同步修订，保持信息准确。</div>
+            </div>
+
+            <!-- 页尾访问提示 -->
+            <div class="footer-access">
+                <div class="mention">
+                    <span class="tag">入口</span> 直接使用 <a href="https://page-hbzb.com">黑白直播</a> 即可进入频道列表 · 建议添加书签
+                </div>
+                <div style="margin-top: 0.8rem; font-size: 0.85rem; color: #7d8b9c;">
+                    内容说明 · 版本 2025 · 无跟踪 / 无广告
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
